@@ -13,7 +13,7 @@ function cat(path){
     });
 }
 
-function webCat(url){
+function webCat(url){ 
     
    return axios.get(url)
     .then(function(response){
