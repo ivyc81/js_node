@@ -15,19 +15,21 @@ function cat(path){
 
 function webCat(url){ 
     
-   return axios.get(url)
-    .then(function(response){
-        console.log(response.data);
-    })
-    .catch(function (error){
-        if (error) {
-            console.log(
-            `Error fetching ${url}: 
-            Error: Request failed with status code ${error.response.status}`);
-
-        }
-    });
-}
+    return axios.get(url)
+     .then(function(response){
+         console.log(response.data);
+     })
+     .catch(function (error){
+         if (error.response) {
+             console.log(
+             `Error fetching ${url}: 
+             Error: Request failed with status code ${error.response.status}`);
+         } else {
+             console.log(`Error fetching ${url}: 
+             Error: Request failed `)
+         }
+     });
+ }
 
 const address=process.argv[2];
 
